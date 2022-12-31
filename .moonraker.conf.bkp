@@ -32,6 +32,20 @@ trusted_clients =
 subscriptions = 
 	mainsail
 
+[notifier telegram]
+url = tgram://{bottoken}/{ChatID}
+events = *
+	Valid events:
+	started
+	complete
+	error
+	cancelled
+	paused
+	resumed
+body = "Your printer status has changed to {event_name}"
+title = 
+attach = 
+
 [update_manager]
 refresh_interval = 168
 enable_auto_refresh = True
@@ -92,21 +106,6 @@ env = ~/moonraker-telegram-bot-env/bin/python
 requirements = scripts/requirements.txt
 install_script = scripts/install.sh
 
-[power homeassistant_switch]
-type = homeassistant
-address = 192.168.1.126
-port = 8123
-device = switch.switch_xmas_tree
-token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmNmZjNTM5OWI4OTg0ZTYxODMzYjYyMDU3MmZjNjRlZiIsImlhdCI6MTY3MjA1NTkyMCwiZXhwIjoxOTg3NDE1OTIwfQ.XSW8gG8TGBZvD92lDbEAVXNtQkPzi9ZT5SfvNC2ngoM
-domain = switch
-status_delay = 1.0
-
-[power shelly_plug]
-type = shelly
-address = 192.168.1.96
-user = dp@psuarez.com
-password = UG8PsMigeYgA
-
 [mqtt]
 address = 192.168.1.126
 port = 1883
@@ -114,6 +113,10 @@ username = patofotomqtt
 password = 306537
 enable_moonraker_api = True
 instance_name = ender3v2_mqtt
-publish_split_status = False
+status_objects = 
+	print_stats
+	idle_timeout
+	display_status
+publish_split_status = True
 default_qos = 0
 
