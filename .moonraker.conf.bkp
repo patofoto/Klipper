@@ -101,3 +101,19 @@ token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJmNmZjNTM5OWI4OTg0ZTYxODM
 domain = switch
 status_delay = 1.0
 
+[power shelly_plug]
+type = shelly
+address = 192.168.1.96
+user = dp@psuarez.com
+password = UG8PsMigeYgA
+
+[mqtt]
+address = 192.168.1.126
+port = 1883
+username = patofotomqtt
+password = 306537
+enable_moonraker_api = True
+instance_name = ender3v2_mqtt
+publish_split_status = False
+default_qos = 0
+
