@@ -32,20 +32,6 @@ trusted_clients =
 subscriptions = 
 	mainsail
 
-[notifier telegram]
-url = tgram://{bottoken}/{ChatID}
-events = *
-	Valid events:
-	started
-	complete
-	error
-	cancelled
-	paused
-	resumed
-body = "Your printer status has changed to {event_name}"
-title = 
-attach = 
-
 [update_manager]
 refresh_interval = 168
 enable_auto_refresh = True
@@ -71,8 +57,6 @@ origin = https://github.com/mainsail-crew/moonraker-timelapse.git
 managed_services = klipper moonraker
 
 [timelapse]
-output_path = ~/timelapse/
-ffmpeg_binary_path = /usr/bin/ffmpeg
 
 [update_manager crowsnest]
 type = git_repo
